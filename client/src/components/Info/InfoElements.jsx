@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link as LinkR } from 'react-router-dom'
+import { Link as LinkS } from 'react-scroll'
 export const InfoContainer = styled.div`
   color: #fff;
   background: ${({lightBg}) => (lightBg ? '#f9f9f9' : '#010606')};
@@ -71,6 +73,10 @@ export const Subtitle  = styled.p`
   font-size: 18px;
   line-height: 24px;
   color: ${({darkText}) => (darkText ? '#010606' : '#fff')};
+`
+export const BtnLink = styled(LinkR)`
+  display:flex;
+  justify-content: flex-start;
 `
 export const BtnWrap = styled.div`
   display:flex;

@@ -1,11 +1,14 @@
-import React from 'react'
-import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './SigninElements'
-import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState} from 'react'
+import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './SignUpElements'
 
-const SignIn = () => {
+
+
+
+
+
+const SignUp = () => {
   const [status, setStatus] = useState("Submit");
-  const history = useHistory();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
@@ -14,18 +17,17 @@ const SignIn = () => {
       email: email.value,
       password: password.value,
     };
-    let response = await fetch("http://localhost:3003/login", {
+
+    let response = await fetch("http://localhost:3003/createUser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(details),
     });
-    history.push('/dashboard');
+    setStatus("Submit");
     let result = await response.json();
     alert(result.status);
-    
-  
   }
   return (
     <>
@@ -34,19 +36,17 @@ const SignIn = () => {
           <Icon to='/'>Pair Loss</Icon>
           <FormContent>
             <Form onSubmit={handleSubmit}>
-              <FormH1>Sign in to your account</FormH1>
-              <FormLabel htmlFor='for'>Email</FormLabel>
-                <FormInput htmlFor='email' id = 'email' required />
-              <FormLabel htmlFor='for'>Password</FormLabel>
-                <FormInput htmlFor='password' id = 'password' required />
+              <FormH1>Sign Up</FormH1>
+              <FormLabel htmlFor='email'>Email</FormLabel>
+                <FormInput htmlFor='email' id = "email" required />
+              <FormLabel htmlFor=''>Password</FormLabel>
+                <FormInput htmlFor='password' id = "password" required />
               <FormButton type='submit'>Continue</FormButton>
-              <Text>Forgot password</Text>
             </Form>
           </FormContent>
         </FormWrap>
       </Container>
     </>
   )
-}
-
-export default SignIn
+  }
+export default SignUp
