@@ -21,9 +21,10 @@ const SignIn = () => {
       },
       body: JSON.stringify(details),
     });
-    history.push('/dashboard');
     let result = await response.json();
-    alert(result.status);
+    console.log(result);
+    history.push('/dashboard');
+    
     
   
   }
