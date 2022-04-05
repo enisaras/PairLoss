@@ -9,13 +9,14 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
-    const {email, password} = e.target.elements;
+    const {username, email, password} = e.target.elements;
     let details = {
       email: email.value,
       password: password.value,
     };
-    let response = await fetch("http://localhost:3003/login", {
+    let response = await fetch("http://localhost:3003/api/session", {
       method: "POST",
+      "credentials": "include",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
@@ -35,6 +36,8 @@ const SignIn = () => {
           <Icon to='/'>Pair Loss</Icon>
           <FormContent>
             <Form onSubmit={handleSubmit}>
+            <FormH1>Sign in to your account</FormH1>
+              
               <FormH1>Sign in to your account</FormH1>
               <FormLabel htmlFor='for'>Email</FormLabel>
                 <FormInput htmlFor='email' id = 'email' required />

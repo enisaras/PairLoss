@@ -1,4 +1,20 @@
+module.exports = require("./server.js")
+
+
 // server/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
@@ -88,7 +104,7 @@ app.post("/createUser", async (req, res) => {
           }
         });
     });
-    */
+    
   });
 
 app.get('/session', function(req, res){
@@ -147,7 +163,7 @@ app.post("/login", async (req, res)=> {
     }
    })
   })
-  */ 
+   
   }) 
 
 //LOGOUT
@@ -161,6 +177,7 @@ app.post('/logout', (req,res) => {
 })
 
 })
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-});
+*/
+//app.listen(PORT, () => {
+  //console.log(`Server listening on ${PORT}`);
+//});

@@ -1,3 +1,4 @@
-import userRoutes from './user';
+const userRoutes = require('./user.js');
+
 // syntactic sugar for { userRoutes: userRoutes }
-export { userRoutes };
+module.exports = userRoutes;

@@ -12,13 +12,15 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
-    const {email, password} = e.target.elements;
+    const {username, email, password} = e.target.elements;
     let details = {
+      username: username.value,
       email: email.value,
       password: password.value,
     };
 
-    let response = await fetch("http://localhost:3003/createUser", {
+    let response = await fetch("http://localhost:3003/api/users", {
+      mode: "cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -27,7 +29,7 @@ const SignUp = () => {
     });
     setStatus("Submit");
     let result = await response.json();
-    alert(result.status);
+    // alert(result.status);
   }
   return (
     <>
@@ -37,6 +39,8 @@ const SignUp = () => {
           <FormContent>
             <Form onSubmit={handleSubmit}>
               <FormH1>Sign Up</FormH1>
+              <FormLabel htmlFor='email'>Username</FormLabel>
+                <FormInput htmlFor='username' id = "username" required />
               <FormLabel htmlFor='email'>Email</FormLabel>
                 <FormInput htmlFor='email' id = "email" required />
               <FormLabel htmlFor=''>Password</FormLabel>
