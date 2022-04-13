@@ -50,7 +50,7 @@ const SideMenu = () => {
     <>
       <div id="header">
           {/* collapsed props to change menu size using menucollapse state */}
-        <ProSidebar collapsed={menuCollapse} onToggle={handleToggleSidebar} toggled = {toggled}>
+        <ProSidebar collapsed={menuCollapse}>
           <SidebarHeader>
           <div className="logotext">
               {/* small and big change using menucollapse state */}

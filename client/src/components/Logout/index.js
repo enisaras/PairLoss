@@ -1,5 +1,8 @@
-import {logout} from '/home/enis/PairLoss/client/src/util/session.js'
 import { Button, NavBtnLink } from './LogoutElements'
+
+const logout = () => (
+    fetch("http://localhost:3003/api/session", { method: "DELETE", 'credentials': "include"})
+  );
 const Logout = () => {
     return(
     <>
